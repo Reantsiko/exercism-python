@@ -72,7 +72,7 @@ def is_blackjack(card_one, card_two):
     3.  '2' - '10' = numerical value.
     """
 
-    pass
+    return ((11 if card_one is 'A' else value_of_card(card_one)) + (11 if card_two is 'A' else value_of_card(card_two))) == 21
 
 
 def can_split_pairs(card_one, card_two):
@@ -82,7 +82,7 @@ def can_split_pairs(card_one, card_two):
     :return: bool - can the hand be split into two pairs? (i.e. cards are of the same value).
     """
 
-    pass
+    return value_of_card(card_one) is value_of_card(card_two)
 
 
 def can_double_down(card_one, card_two):
@@ -91,5 +91,5 @@ def can_double_down(card_one, card_two):
     :param card_one, card_two: str - first and second cards in hand.
     :return: bool - can the hand can be doubled down? (i.e. totals 9, 10 or 11 points).
     """
-
-    pass
+    sum_of_cards = value_of_card(card_one) + value_of_card(card_two)
+    return sum_of_cards >= 9 and sum_of_cards <= 11
